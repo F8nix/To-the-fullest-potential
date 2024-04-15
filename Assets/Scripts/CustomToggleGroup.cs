@@ -36,7 +36,7 @@ public class CustomToggleGroup : MonoBehaviour
     }
 
     public void AddToggleOnChange(Toggle toggle) {
-        Debug.Log(activeToggles.Count);
+        //Debug.Log(activeToggles.Count);
         if(toggle.isOn){
             activeToggles.Add(toggle);
         } else {

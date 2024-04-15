@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
-using Unity.VisualScripting;
-using System.Runtime.Serialization.Json;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public enum ResourceType
 {
     Potentia,
-    Vidya
+    Vidya,
+    RandomThird
 }
 
 public class Resource : MonoBehaviour
@@ -28,7 +29,16 @@ public class Resource : MonoBehaviour
     public static float vidyaCapacityBase = 1;
 
     public static float vidyaCapacityMultiplier = 1.2f;
-    public static float potentiaBase = 0;
+
+    public static float potentiaBase = 33;
+    public static float potentiaCapacityBase = 1;
+
+    public static float potentiaCapacityMultiplier = 1.2f;
+
+    public static float randomThirdBase = 100;
+    public static float randomThirdCapacityBase = 1.5f;
+
+    public static float randomThirdCapacityMultiplier = 1.2f;
 
 //->> bases
     public float CurrentValue
@@ -40,6 +50,7 @@ public class Resource : MonoBehaviour
             } else {
                 currentValue = value;
             }
+            sliderUpdate.Invoke();
         }
     }
     
@@ -47,9 +58,21 @@ public class Resource : MonoBehaviour
     public float Capacity {get; set;} = 0;
     public int Lvl {get; set;} = 1;
 
+    public UnityEvent sliderUpdate;
+
     void Start()
     {
         Capacity = GenerateCapacityOnLevel(Lvl, ResourceType.Vidya);
+        
+        //sliderUpdate.AddListener(secondSlider.SliderUpdate);
+
+        if (sliderUpdate == null)
+            sliderUpdate = new UnityEvent();
+
+        sliderUpdate.AddListener(ResourceSliderController.Instance.firstSlider.SliderUpdate);
+        sliderUpdate.AddListener(ResourceSliderController.Instance.secondSlider.SliderUpdate);
+
+        sliderUpdate.Invoke();
     }
 
     void Update()
@@ -68,7 +91,7 @@ public class Resource : MonoBehaviour
 
             if(GUILayout.Button("AddToCurrent")){
                 resource.CurrentValue += resourceDebugAddValue;
-                Debug.Log("Current resource " + resource.currentValue + " current tool lvl: " + resource.Lvl + " current capacity " + resource.Capacity);
+                //Debug.Log("Current resource " + resource.currentValue + " current tool lvl: " + resource.Lvl + " current capacity " + resource.Capacity);
             }
 
             DrawDefaultInspector();
@@ -80,6 +103,12 @@ public class Resource : MonoBehaviour
     public static float GenerateCapacityOnLevel(int level, ResourceType resource) {
         if(resource == ResourceType.Vidya){     
             return (float) Math.Ceiling((vidyaBase * vidyaCapacityBase) * Math.Pow(vidyaCapacityMultiplier, level-1));
+        }
+        if(resource == ResourceType.Potentia){     
+            return (float) Math.Ceiling((potentiaBase * potentiaCapacityBase) * Math.Pow(potentiaCapacityMultiplier, level-1));
+        }
+        if(resource == ResourceType.RandomThird){     
+            return (float) Math.Ceiling((randomThirdBase * randomThirdCapacityBase) * Math.Pow(randomThirdCapacityMultiplier, level-1));
         }
         return -1;
     }
@@ -99,5 +128,9 @@ public class Resource : MonoBehaviour
         } else if (currentValueReset && !lvlAbove){
             CurrentValue = Capacity;
         }
+    }
+
+    public ResourceType GetResourceType() {
+        return resource;
     }
 }

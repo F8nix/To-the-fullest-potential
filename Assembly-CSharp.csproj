@@ -65,9 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Grid.cs" />
+    <Compile Include="Assets/Scripts/ResourceSlider.cs" />
     <Compile Include="Assets/Scripts/CustomToggleGroup.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
-    <Compile Include="Assets/Scripts/ResourcesUI.cs" />
+    <Compile Include="Assets/Scripts/ResourceSliderController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
