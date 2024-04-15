@@ -12,15 +12,11 @@ public class ResourceSlider : MonoBehaviour
     public TextMeshProUGUI resourceValues;
     public ResourceType sliderResource;
 
-    public void SliderUpdate(){
-        Debug.Log("Slider update!");
-        for (int i = 0; i < ResourceSliderController.Instance.resourcesList.Count; i++) {
-            Debug.Log("For state: "+i);
-            if(sliderResource == ResourceSliderController.Instance.resourcesList[i].GetResourceType()){
-                resourceSlider.maxValue = ResourceSliderController.Instance.resourcesList[i].Capacity;
-                resourceSlider.value = ResourceSliderController.Instance.resourcesList[i].CurrentValue;
-                resourceValues.text = $"{ResourceSliderController.Instance.resourcesList[i].CurrentValue}/{ResourceSliderController.Instance.resourcesList[i].Capacity}";
-            }
-        }
+    public void SliderUpdate(Resource resource){
+        if(resource.GetResourceType() != sliderResource) return;
+
+        resourceSlider.maxValue = resource.Capacity;
+        resourceSlider.value = resource.CurrentValue;
+        resourceValues.text = $"{resource.CurrentValue}/{resource.Capacity}";
     }
 }

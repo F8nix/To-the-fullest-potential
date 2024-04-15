@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class CustomToggleGroup : MonoBehaviour
 {
-    public HashSet<Toggle> activeToggles;
-    public List<Toggle> toggles;
+    public HashSet<ResourceToggle> activeToggles;
+    public List<ResourceToggle> toggles;
+
+    public ResourceSliderController resourceSliderController;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +18,15 @@ public class CustomToggleGroup : MonoBehaviour
 
         foreach (var toggle in toggles)
         {
-            toggle.onValueChanged.AddListener(delegate {
+            toggle.toggle.onValueChanged.AddListener(delegate {
             AddToggleOnChange(toggle);
             });
         }
 
         //>> rip rozwiązanie trochę, ale potentia i vidya MUSZĄ być na pierszych dwóch pozycjach
 
-        toggles[0].isOn = true;
-        toggles[1].isOn = true;
+        toggles[0].toggle.isOn = true;
+        toggles[1].toggle.isOn = true;
 
         //->>
     }
@@ -35,9 +37,9 @@ public class CustomToggleGroup : MonoBehaviour
         
     }
 
-    public void AddToggleOnChange(Toggle toggle) {
+    public void AddToggleOnChange(ResourceToggle toggle) {
         //Debug.Log(activeToggles.Count);
-        if(toggle.isOn){
+        if(toggle.toggle.isOn){
             activeToggles.Add(toggle);
         } else {
             activeToggles.Remove(toggle);
@@ -45,15 +47,16 @@ public class CustomToggleGroup : MonoBehaviour
         if(activeToggles.Count == 2) {
             foreach (var t in toggles)
             {
-                if(!t.isOn){
-                    t.enabled = false;
+                if(!t.toggle.isOn){
+                    t.toggle.enabled = false;
                 }
             }
         } else {
             foreach (var t in toggles)
             {
-                t.enabled = true;
+                t.toggle.enabled = true;
             }
         }
+        resourceSliderController.SetSlider.Invoke(activeToggles);
     }
 }

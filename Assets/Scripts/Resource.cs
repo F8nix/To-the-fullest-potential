@@ -50,7 +50,7 @@ public class Resource : MonoBehaviour
             } else {
                 currentValue = value;
             }
-            sliderUpdate.Invoke();
+            sliderUpdate?.Invoke(this);
         }
     }
     
@@ -58,21 +58,21 @@ public class Resource : MonoBehaviour
     public float Capacity {get; set;} = 0;
     public int Lvl {get; set;} = 1;
 
-    public UnityEvent sliderUpdate;
+    public UnityEvent<Resource> sliderUpdate;
 
     void Start()
     {
-        Capacity = GenerateCapacityOnLevel(Lvl, ResourceType.Vidya);
+        Capacity = GenerateCapacityOnLevel(Lvl, resource);
         
         //sliderUpdate.AddListener(secondSlider.SliderUpdate);
 
         if (sliderUpdate == null)
-            sliderUpdate = new UnityEvent();
+            sliderUpdate = new UnityEvent<Resource>();
 
         sliderUpdate.AddListener(ResourceSliderController.Instance.firstSlider.SliderUpdate);
         sliderUpdate.AddListener(ResourceSliderController.Instance.secondSlider.SliderUpdate);
 
-        sliderUpdate.Invoke();
+        sliderUpdate.Invoke(this);
     }
 
     void Update()

@@ -167,7 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: 0
+  resource: 2
+  sliderUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &103662444
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211385052}
   - component: {fileID: 211385053}
+  - component: {fileID: 211385054}
   m_Layer: 5
   m_Name: Vidya
   m_TagString: Untagged
@@ -405,6 +409,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &211385054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211385051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97a8879eb4aa87b7b946d37bd3f22fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 211385053}
+  resourceType: 1
 --- !u!1 &250725417
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +498,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250725417}
   m_CullTransparentMesh: 1
+--- !u!1 &276624198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 276624200}
+  - component: {fileID: 276624199}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &276624199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276624198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9079c1c65f3b8762b4f6211c5745192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourcesList:
+  - {fileID: 1291081605}
+  - {fileID: 877480083}
+  - {fileID: 51914402}
+--- !u!4 &276624200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276624198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -44.639862, y: -2.1551137, z: 84.107155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286878873
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,10 +1021,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstSlider: {fileID: 286878876}
   secondSlider: {fileID: 349090103}
-  resourcesList:
-  - {fileID: 877480083}
-  - {fileID: 1291081605}
-  - {fileID: 51914402}
+  customToggleGroup: {fileID: 1866948951}
+  SetSlider:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &499633413
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 499633414}
   - component: {fileID: 499633415}
+  - component: {fileID: 499633416}
   m_Layer: 5
   m_Name: Potentia
   m_TagString: Untagged
@@ -1045,6 +1112,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &499633416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499633413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97a8879eb4aa87b7b946d37bd3f22fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 499633415}
+  resourceType: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 709160757}
   - component: {fileID: 709160758}
+  - component: {fileID: 709160759}
   m_Layer: 5
   m_Name: RndThird
   m_TagString: Untagged
@@ -1306,6 +1388,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &709160759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709160756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97a8879eb4aa87b7b946d37bd3f22fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 709160758}
+  resourceType: 2
 --- !u!1 &713773396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,8 +1431,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 877480082}
   - {fileID: 1291081604}
+  - {fileID: 877480082}
   - {fileID: 51914401}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1460,6 +1556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: 1
+  sliderUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: 0
+  sliderUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1391535853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,9 +2620,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggles:
-  - {fileID: 499633415}
-  - {fileID: 211385053}
-  - {fileID: 709160758}
+  - {fileID: 499633416}
+  - {fileID: 211385054}
+  - {fileID: 709160759}
+  resourceSliderController: {fileID: 464072703}
 --- !u!1 &1869457251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,6 +2693,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: 1
+  sliderUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2054476536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2762,3 +2868,4 @@ SceneRoots:
   - {fileID: 464072702}
   - {fileID: 461826909}
   - {fileID: 713773398}
+  - {fileID: 276624200}
