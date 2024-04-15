@@ -48,14 +48,17 @@ public class ResourceSliderController : MonoBehaviour
         var i = 0;
         foreach (var toggle in activeToggles)
         {
-            activeResources.Add(ResourceManager.Instance.resourcesConversion[toggle.resourceType]);
+            var resource = ResourceManager.Instance.resourcesConversion[toggle.resourceType];
+            activeResources.Add(resource);
             //Debug.Log(ResourceManager.Instance.resourcesConversion[toggle.resourceType]);
             if(i == 0){
                 firstSlider.sliderResource = toggle.resourceType;
-                firstSlider.SliderUpdate(ResourceManager.Instance.resourcesConversion[toggle.resourceType]);
+                firstSlider.SliderUpdate(resource);
+                firstSlider.resourceSlider.fillRect.GetComponentInChildren<Image>().color = resource.resourcesData.color;
             } else {
                 secondSlider.sliderResource = toggle.resourceType;
-                secondSlider.SliderUpdate(ResourceManager.Instance.resourcesConversion[toggle.resourceType]);
+                secondSlider.SliderUpdate(resource);
+                secondSlider.resourceSlider.fillRect.GetComponentInChildren<Image>().color = resource.resourcesData.color;
             }
             i++;
         }

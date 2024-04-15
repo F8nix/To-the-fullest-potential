@@ -15,38 +15,14 @@ public enum ResourceType
 
 public class Resource : MonoBehaviour
 {
-//>>leveling rules
-    private bool lvlAbove = true;
-    private bool currentValueReset = true;
-
-    [SerializeField] private ResourceType resource;
-
-//>>-leveling rules
-
-//>> bases and multipliers
-
-    public static float vidyaBase = 12;
-    public static float vidyaCapacityBase = 1;
-
-    public static float vidyaCapacityMultiplier = 1.2f;
-
-    public static float potentiaBase = 33;
-    public static float potentiaCapacityBase = 1;
-
-    public static float potentiaCapacityMultiplier = 1.2f;
-
-    public static float randomThirdBase = 100;
-    public static float randomThirdCapacityBase = 1.5f;
-
-    public static float randomThirdCapacityMultiplier = 1.2f;
-
-//->> bases
     public float CurrentValue
     {
         get {return currentValue;}
         set {
-            if(CanLevelUp(value)){
+            if(resourcesData.autoLvlUp && CanLevelUp(value)){
                 LevelUp();
+            } else if (value >= Capacity) {
+                currentValue = Capacity;
             } else {
                 currentValue = value;
             }
@@ -60,9 +36,11 @@ public class Resource : MonoBehaviour
 
     public UnityEvent<Resource> sliderUpdate;
 
+    public ResourcesSO resourcesData;
+
     void Start()
     {
-        Capacity = GenerateCapacityOnLevel(Lvl, resource);
+        Capacity = GenerateCapacityOnLevel(Lvl);
         
         //sliderUpdate.AddListener(secondSlider.SliderUpdate);
 
@@ -100,21 +78,12 @@ public class Resource : MonoBehaviour
 
     #endif
 
-    public static float GenerateCapacityOnLevel(int level, ResourceType resource) {
-        if(resource == ResourceType.Vidya){     
-            return (float) Math.Ceiling((vidyaBase * vidyaCapacityBase) * Math.Pow(vidyaCapacityMultiplier, level-1));
-        }
-        if(resource == ResourceType.Potentia){     
-            return (float) Math.Ceiling((potentiaBase * potentiaCapacityBase) * Math.Pow(potentiaCapacityMultiplier, level-1));
-        }
-        if(resource == ResourceType.RandomThird){     
-            return (float) Math.Ceiling((randomThirdBase * randomThirdCapacityBase) * Math.Pow(randomThirdCapacityMultiplier, level-1));
-        }
-        return -1;
+    public float GenerateCapacityOnLevel(int level) {
+        return Mathf.Ceil((resourcesData.resourceBase * resourcesData.resourceCapacityBase) * Mathf.Pow(resourcesData.resourceCapacityMultiplier, level-1));
     }
 
     public bool CanLevelUp(float newResourceValue) {
-        return lvlAbove
+        return resourcesData.lvlAbove
             ? (newResourceValue >= Capacity)
             : (newResourceValue <= Capacity)
             ;   
@@ -122,15 +91,15 @@ public class Resource : MonoBehaviour
 
     public void LevelUp(){
         Lvl++;
-        Capacity = GenerateCapacityOnLevel(Lvl, resource);
-        if(currentValueReset && lvlAbove){
+        Capacity = GenerateCapacityOnLevel(Lvl);
+        if(resourcesData.currentValueReset && resourcesData.lvlAbove){
             CurrentValue = 0;
-        } else if (currentValueReset && !lvlAbove){
+        } else if (resourcesData.currentValueReset && !resourcesData.lvlAbove){
             CurrentValue = Capacity;
         }
     }
 
     public ResourceType GetResourceType() {
-        return resource;
+        return resourcesData.resourceType;
     }
 }

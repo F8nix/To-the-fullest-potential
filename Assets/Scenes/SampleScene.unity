@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: 2
   sliderUpdate:
     m_PersistentCalls:
       m_Calls: []
+  resourcesData: {fileID: 11400000, guid: 96076b04c264eba21aa82a4c0c649278, type: 2}
 --- !u!1 &103662444
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4117647, g: 0.4627451, b: 0.64705884, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1555,10 +1555,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: 1
   sliderUpdate:
     m_PersistentCalls:
       m_Calls: []
+  resourcesData: {fileID: 11400000, guid: 70f568501e631e3ae931a3758ca653cc, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,8 +1684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1109619198
 GameObject:
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.49208325, g: 0.5475202, b: 0.7773584, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1991,10 +1991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: 0
   sliderUpdate:
     m_PersistentCalls:
       m_Calls: []
+  resourcesData: {fileID: 11400000, guid: ac6234d821c09bce4b133090b877c0fe, type: 2}
 --- !u!1 &1391535853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,8 +2657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2054476534
 GameObject:
@@ -2672,7 +2672,6 @@ GameObject:
   - component: {fileID: 2054476538}
   - component: {fileID: 2054476537}
   - component: {fileID: 2054476536}
-  - component: {fileID: 2054476535}
   m_Layer: 0
   m_Name: TheTool
   m_TagString: Untagged
@@ -2680,22 +2679,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2054476535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054476534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resource: 1
-  sliderUpdate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &2054476536
 BoxCollider:
   m_ObjectHideFlags: 0
