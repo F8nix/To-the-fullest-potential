@@ -65,13 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/SO/Resources/ResourcesSO.cs" />
-    <Compile Include="Assets/Scripts/ResourceManager.cs" />
+    <Compile Include="Assets/Scripts/Upgrade.cs" />
     <Compile Include="Assets/Scripts/Grid.cs" />
-    <Compile Include="Assets/Scripts/ResourceSlider.cs" />
+    <Compile Include="Assets/Scripts/Resources/ResourceManager.cs" />
     <Compile Include="Assets/Scripts/CustomToggleGroup.cs" />
-    <Compile Include="Assets/Scripts/Resource.cs" />
-    <Compile Include="Assets/Scripts/ResourceSliderController.cs" />
-    <Compile Include="Assets/Scripts/ResourceToggle.cs" />
+    <Compile Include="Assets/Scripts/Resources/Resource.cs" />
+    <Compile Include="Assets/Scripts/Resources/ResourceSliderController.cs" />
+    <Compile Include="Assets/Scripts/UpgradeResource.cs" />
+    <Compile Include="Assets/Scripts/Resources/ResourceSlider.cs" />
+    <Compile Include="Assets/Scripts/SO/Upgrades/UpgradesSO.cs" />
+    <Compile Include="Assets/Scripts/Resources/ResourceToggle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

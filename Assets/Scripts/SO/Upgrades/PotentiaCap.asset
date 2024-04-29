@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37f96670d533b907b0577a2e307b9ff, type: 3}
+  m_Name: PotentiaCap
+  m_EditorClassIdentifier: 
+  lvlAbove: 1
+  upgradeBase: 1
+  upgradeVariables:
+  - upgradeCostBase: 5
+    upgradeCostMultiplier: 2
+    upgradeInfluenceBase: 1.2
+    upgradeInfluenceMultiplier: 2
+    upgradeResourceType: 0
