@@ -65,14 +65,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/SO/Resources/ResourcesSO.cs" />
+    <Compile Include="Assets/Scripts/UpgradeResourceInfluence.cs" />
     <Compile Include="Assets/Scripts/Upgrade.cs" />
     <Compile Include="Assets/Scripts/Grid.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceManager.cs" />
     <Compile Include="Assets/Scripts/CustomToggleGroup.cs" />
     <Compile Include="Assets/Scripts/Resources/Resource.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceSliderController.cs" />
-    <Compile Include="Assets/Scripts/UpgradeResource.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceSlider.cs" />
+    <Compile Include="Assets/Scripts/UpgradeResourceCost.cs" />
     <Compile Include="Assets/Scripts/SO/Upgrades/UpgradesSO.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceToggle.cs" />
   </ItemGroup>

@@ -34,13 +34,18 @@ public class Resource : MonoBehaviour
     public float Capacity {get; set;} = 0;
     public int Lvl {get; set;} = 1;
 
+    public float GeneratingRate {get; set;} = 0;
+
+    public float capacityUpgradesMultiplier = 1;
+
     public UnityEvent<Resource> sliderUpdate;
 
     public ResourcesSO resourcesData;
 
     void Start()
     {
-        Capacity = GenerateCapacityOnLevel(Lvl);
+        GeneratingRate = resourcesData.generatingRate;
+        Capacity = GenerateCapacity();
         
         //sliderUpdate.AddListener(secondSlider.SliderUpdate);
 
@@ -50,11 +55,12 @@ public class Resource : MonoBehaviour
         sliderUpdate.AddListener(ResourceSliderController.Instance.firstSlider.SliderUpdate);
         sliderUpdate.AddListener(ResourceSliderController.Instance.secondSlider.SliderUpdate);
 
-        sliderUpdate.Invoke(this);
+        sliderUpdate?.Invoke(this);
     }
 
     void Update()
     {
+        HandleGenerating();
     }
 
     #if UNITY_EDITOR
@@ -78,8 +84,9 @@ public class Resource : MonoBehaviour
 
     #endif
 
-    public float GenerateCapacityOnLevel(int level) {
-        return Mathf.Ceil((resourcesData.resourceBase * resourcesData.resourceCapacityBase) * Mathf.Pow(resourcesData.resourceCapacityMultiplier, level-1));
+    public float GenerateCapacity() {
+        return Mathf.Ceil((resourcesData.resourceBase * resourcesData.resourceCapacityBase) *
+        Mathf.Pow(resourcesData.resourceCapacityMultiplier, Lvl-1) * capacityUpgradesMultiplier);
     }
 
     public bool CanLevelUp(float newResourceValue) {
@@ -91,7 +98,8 @@ public class Resource : MonoBehaviour
 
     public void LevelUp(){
         Lvl++;
-        Capacity = GenerateCapacityOnLevel(Lvl);
+        Capacity = GenerateCapacity();
+        Debug.Log(Capacity + "Capacity");
         if(resourcesData.currentValueReset && resourcesData.lvlAbove){
             CurrentValue = 0;
         } else if (resourcesData.currentValueReset && !resourcesData.lvlAbove){
@@ -101,5 +109,16 @@ public class Resource : MonoBehaviour
 
     public ResourceType GetResourceType() {
         return resourcesData.resourceType;
+    }
+
+    public void UpdateUpgradable() {
+        Capacity = GenerateCapacity();
+        sliderUpdate?.Invoke(this);
+    }
+
+    public void HandleGenerating() {
+        if(resourcesData.isGenerating){
+            CurrentValue += GeneratingRate * Time.deltaTime;
+        }
     }
 }

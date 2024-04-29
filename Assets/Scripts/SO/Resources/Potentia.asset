@@ -16,6 +16,8 @@ MonoBehaviour:
   currentValueReset: 1
   resourceType: 0
   autoLvlUp: 0
+  isGenerating: 1
+  generatingRate: 2
   color: {r: 0.7622642, g: 0.23083676, b: 0.23083676, a: 1}
   resourceBase: 33
   resourceCapacityBase: 1

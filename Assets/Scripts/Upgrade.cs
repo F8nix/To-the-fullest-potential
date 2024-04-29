@@ -7,25 +7,38 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Linq;
 
+public enum UpgradedVariable
+{
+    Capacity,
+    ReplenishRate
+}
+
 public class Upgrade : MonoBehaviour
 {
     
-    public int Lvl {get; set;} = 1;
+    public int Lvl {get; set;} = 0;
 
     //public UnityEvent<Resource> sliderUpdate;
 
     public UpgradesSO upgradesData;
 
-    public List<UpgradeResource> upgradeResources;
+    public List<UpgradeResourceCost> upgradeResourcesCost;
+    public List<UpgradeResourceInfluence> upgradeResourcesInfluence;
 
     void Start()
     {
         //Cost = GenerateCostOnLevel(Lvl);
-        upgradeResources = new List<UpgradeResource>();
+        upgradeResourcesCost = new();
+        upgradeResourcesInfluence = new();
         foreach (var variable in upgradesData.upgradeVariables)
         {
-            upgradeResources.Add(new UpgradeResource(variable, Lvl, upgradesData));
+            upgradeResourcesCost.Add(new UpgradeResourceCost(variable, Lvl, upgradesData));
         }
+        foreach (var target in upgradesData.upgradeTarget)
+        {
+            upgradeResourcesInfluence.Add(new UpgradeResourceInfluence(target, Lvl, upgradesData));
+        }
+        //interfejs, żeby nie było podwójnych for eachów/jednej listy
         
         /*
         if (sliderUpdate == null)
@@ -53,7 +66,10 @@ public class Upgrade : MonoBehaviour
             var upgradeDebugAddLvls = 1;
 
             if(GUILayout.Button("AddToCurrent")){
-                upgrade.SetLvl(upgradeDebugAddLvls);
+                if(upgrade.CanLevelUp()){
+                    upgrade.AddLvl(upgradeDebugAddLvls);
+                }
+                
             }
 
             DrawDefaultInspector();
@@ -63,24 +79,33 @@ public class Upgrade : MonoBehaviour
     #endif
 
     public bool CanLevelUp() {
-        return upgradeResources.All(upgradeResource => upgradeResource.currentCost < upgradeResource.GetResourceCurrentValue(upgradeResource.variables.upgradeResourceType));  
+        return upgradeResourcesCost.All(upgradeResource =>{ 
+        return upgradeResource.currentCost < ResourceManager.Instance.resourcesConversion[upgradeResource.variables.resourceCostType].CurrentValue
+        && ResourceManager.Instance.resourcesConversion[upgradeResource.variables.resourceCostType].CurrentValue - upgradeResource.currentCost > 0;
+    });  
     }
 
     public void LevelUp(){
         Lvl++;
-        foreach (var upgradeResource in upgradeResources)
+        foreach (var upgradeResource in upgradeResourcesCost)
         {
-            upgradeResource.GenerateCostOnLevel(Lvl);
-            upgradeResource.GenerateInfluenceOnLevel(Lvl);
+            upgradeResource.UpdateOnLevelUp(this.Lvl);
+        }
+        foreach (var upgradeResource in upgradeResourcesInfluence)
+        {
+            upgradeResource.UpdateOnLevelUp(this.Lvl);
         }
     }
 
-    private void SetLvl(int Lvl) {
-        this.Lvl = Lvl;
-        foreach (var upgradeResource in upgradeResources)
+    private void AddLvl(int Lvl) {
+        this.Lvl += Lvl;
+        foreach (var upgradeResource in upgradeResourcesCost)
         {
-            upgradeResource.GenerateCostOnLevel(Lvl);
-            upgradeResource.GenerateInfluenceOnLevel(Lvl);
+            upgradeResource.UpdateOnLevelUp(this.Lvl);
+        }
+        foreach (var upgradeResource in upgradeResourcesInfluence)
+        {
+            upgradeResource.UpdateOnLevelUp(this.Lvl);
         }
     }
 }

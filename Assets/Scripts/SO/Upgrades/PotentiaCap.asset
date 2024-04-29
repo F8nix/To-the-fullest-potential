@@ -15,8 +15,11 @@ MonoBehaviour:
   lvlAbove: 1
   upgradeBase: 1
   upgradeVariables:
-  - upgradeCostBase: 5
-    upgradeCostMultiplier: 2
-    upgradeInfluenceBase: 1.2
-    upgradeInfluenceMultiplier: 2
-    upgradeResourceType: 0
+  - costBase: 5
+    costMultiplier: 1.05
+    resourceCostType: 0
+  upgradeTarget:
+  - influencedResourceType: 0
+    influencedVariableType: 0
+    influenceBase: 1.2
+    influenceMultiplier: 1.03

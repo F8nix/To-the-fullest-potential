@@ -11,14 +11,23 @@ public class UpgradesSO : ScriptableObject
     //->>
 
     public float upgradeBase;
-    public List<UpgradeResourceData> upgradeVariables;
+    public List<UpgradeVariables> upgradeVariables;
+
+    public List<UpgradeInfluenceData> upgradeTarget;
 }
 
 [Serializable]
-public class UpgradeResourceData {
-    public float upgradeCostBase;
-    public float upgradeCostMultiplier;
-    public float upgradeInfluenceBase;
-    public float upgradeInfluenceMultiplier;
-    public ResourceType upgradeResourceType;
+public class UpgradeVariables {
+    public float costBase;
+    public float costMultiplier;
+    public ResourceType resourceCostType;   
+}
+
+[Serializable]
+
+public class UpgradeInfluenceData {
+    public ResourceType influencedResourceType;
+    public UpgradedVariable influencedVariableType;
+    public float influenceBase;
+    public float influenceMultiplier;
 }

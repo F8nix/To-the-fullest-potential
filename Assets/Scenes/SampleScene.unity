@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capacityUpgradesMultiplier: 1
   sliderUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -1556,6 +1557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capacityUpgradesMultiplier: 1
   sliderUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -1992,6 +1994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac1f534eab9b5c59b0ee0f67de146ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capacityUpgradesMultiplier: 1
   sliderUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -2279,7 +2282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesData: {fileID: 11400000, guid: 49706a0d9af0bbc599deb35b0fead7e0, type: 2}
-  upgradeResources: []
+  upgradeResourcesCost: []
+  upgradeResourcesInfluence: []
 --- !u!114 &1540895306
 MonoBehaviour:
   m_ObjectHideFlags: 0

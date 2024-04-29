@@ -13,6 +13,12 @@ public class ResourcesSO : ScriptableObject
     public bool autoLvlUp;
     //->>
 
+    // Regen
+    public bool isGenerating;
+    public float generatingRate;
+
+    //->>
+
     public Color color;
     public float resourceBase;
     public float resourceCapacityBase;

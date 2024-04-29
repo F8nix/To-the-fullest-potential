@@ -17,6 +17,6 @@ public class ResourceSlider : MonoBehaviour
 
         resourceSlider.maxValue = resource.Capacity;
         resourceSlider.value = resource.CurrentValue;
-        resourceValues.text = $"{resource.CurrentValue}/{resource.Capacity}";
+        resourceValues.text = $"{Mathf.Round(resource.CurrentValue)}/{Mathf.Round(resource.Capacity)}";
     }
 }
