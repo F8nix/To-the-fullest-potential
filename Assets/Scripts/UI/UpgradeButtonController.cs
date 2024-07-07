@@ -15,7 +15,7 @@ public class UpgradeButtonController : MonoBehaviour
 
     //private bool doneOnce = false; //debug tool
 
-    void Start()
+    void Awake()
     {
         upgradeButtons = new Dictionary<List<ResourceType>, Button>();
         activeButtons = new();

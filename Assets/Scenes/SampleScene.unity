@@ -2145,9 +2145,17 @@ PrefabInstance:
       value: Button (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8568581166839546575, guid: c6aa4217a88511ca6833a3097aa5475f, type: 3}
+      propertyPath: upgradesData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9da62b294a8cf48b8a03f6f6dddd7953, type: 2}
+    - target: {fileID: 8568581166839546575, guid: c6aa4217a88511ca6833a3097aa5475f, type: 3}
       propertyPath: upgradeButtonController
       value: 
       objectReference: {fileID: 1285603714}
+    - target: {fileID: 8976922161541400039, guid: c6aa4217a88511ca6833a3097aa5475f, type: 3}
+      propertyPath: m_text
+      value: Vid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2563,9 +2571,17 @@ PrefabInstance:
       value: Button (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8568581166839546575, guid: c6aa4217a88511ca6833a3097aa5475f, type: 3}
+      propertyPath: upgradesData
+      value: 
+      objectReference: {fileID: 11400000, guid: db5640f96a68c658c9093e6941a07abd, type: 2}
+    - target: {fileID: 8568581166839546575, guid: c6aa4217a88511ca6833a3097aa5475f, type: 3}
       propertyPath: upgradeButtonController
       value: 
       objectReference: {fileID: 1285603714}
+    - target: {fileID: 8976922161541400039, guid: c6aa4217a88511ca6833a3097aa5475f, type: 3}
+      propertyPath: m_text
+      value: PotVid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
