@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeResourceInfluence : MonoBehaviour
+public class UpgradeResourceInfluence
 {
     public float currentInfluence = 0;
 

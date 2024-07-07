@@ -18,6 +18,8 @@ public class ResourceSliderController : MonoBehaviour
 
     public UnityEvent<HashSet<ResourceToggle>> SetSlider;
 
+    public UpgradeButtonController upgradeButtonController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,7 @@ public class ResourceSliderController : MonoBehaviour
 
     private void OnToggleChange(HashSet<ResourceToggle> activeToggles){
         activeResources = new();
+        upgradeButtonController.ClearActiveButtonsList();
         var i = 0;
         foreach (var toggle in activeToggles)
         {
@@ -60,20 +63,23 @@ public class ResourceSliderController : MonoBehaviour
                 secondSlider.SliderUpdate(resource);
                 secondSlider.resourceSlider.fillRect.GetComponentInChildren<Image>().color = resource.resourcesData.color;
             }
+            upgradeButtonController.UpdateActiveButtonsList(resource.GetResourceType()); //update upgrade buttons grid p1
             i++;
         }
         if(activeResources.Count == 0){
-            Debug.Log("0");
+            //Debug.Log("0");
             firstSlider.resourceSlider.gameObject.SetActive(false);
             secondSlider.resourceSlider.gameObject.SetActive(false);
         } else if(activeResources.Count == 1){
-            Debug.Log("1");
+            //Debug.Log("1");
             firstSlider.resourceSlider.gameObject.SetActive(true);
             secondSlider.resourceSlider.gameObject.SetActive(false);
         }  else {
-            Debug.Log("2");
+            //Debug.Log("2");
             firstSlider.resourceSlider.gameObject.SetActive(true);
             secondSlider.resourceSlider.gameObject.SetActive(true);
         }
+        
+        upgradeButtonController.UpdateGrid(); //update upgrade buttons grid p2
     }
 }

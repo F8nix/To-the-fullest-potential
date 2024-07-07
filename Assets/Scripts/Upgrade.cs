@@ -25,19 +25,32 @@ public class Upgrade : MonoBehaviour
     public List<UpgradeResourceCost> upgradeResourcesCost;
     public List<UpgradeResourceInfluence> upgradeResourcesInfluence;
 
+    public List<ResourceType> upgradeResources;
+
+    public UpgradeButtonController upgradeButtonController;
+
     void Start()
     {
         //Cost = GenerateCostOnLevel(Lvl);
         upgradeResourcesCost = new();
         upgradeResourcesInfluence = new();
+        upgradeResources = new();
         foreach (var variable in upgradesData.upgradeVariables)
         {
             upgradeResourcesCost.Add(new UpgradeResourceCost(variable, Lvl, upgradesData));
+            upgradeResources.Add(variable.resourceCostType);
         }
         foreach (var target in upgradesData.upgradeTarget)
         {
             upgradeResourcesInfluence.Add(new UpgradeResourceInfluence(target, Lvl, upgradesData));
         }
+        if(upgradeResources == null){
+            Debug.Log("upgradeResources");
+        }
+        if(this.GetComponent<Button>() == null){
+            Debug.Log("button");
+        }
+        upgradeButtonController.upgradeButtons.Add(upgradeResources, this.GetComponent<Button>());
         //interfejs, żeby nie było podwójnych for eachów/jednej listy
         
         /*
