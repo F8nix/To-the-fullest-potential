@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37f96670d533b907b0577a2e307b9ff, type: 3}
+  m_Name: MindTransmissionUpgrade
+  m_EditorClassIdentifier: 
+  lvlAbove: 0
+  upgradeBase: 1
+  upgradeVariables:
+  - costBase: 150
+    costMultiplier: 3
+    resourceCostType: 0
+  - costBase: 37
+    costMultiplier: 15
+    resourceCostType: 1
+  upgradeTarget:
+  - influencedResourceType: 1
+    influencedVariableType: 2
+    influenceBase: 1.5
+    influenceMultiplier: 1.1
+  - influencedResourceType: 0
+    influencedVariableType: 3
+    influenceBase: 1.2
+    influenceMultiplier: 1.2

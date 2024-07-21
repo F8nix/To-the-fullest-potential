@@ -66,15 +66,19 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/UI/UpgradeButtonController.cs" />
     <Compile Include="Assets/Scripts/SO/Resources/ResourcesSO.cs" />
-    <Compile Include="Assets/Scripts/UpgradeResourceInfluence.cs" />
-    <Compile Include="Assets/Scripts/Upgrade.cs" />
+    <Compile Include="Assets/Scripts/SO/Spells/SpellsSO.cs" />
     <Compile Include="Assets/Scripts/Grid.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceManager.cs" />
+    <Compile Include="Assets/Scripts/Spells/SpellResourceCost.cs" />
     <Compile Include="Assets/Scripts/CustomToggleGroup.cs" />
     <Compile Include="Assets/Scripts/Resources/Resource.cs" />
+    <Compile Include="Assets/Scripts/Upgrades/UpgradeResourceInfluence.cs" />
+    <Compile Include="Assets/Scripts/Upgrades/UpgradeResourceCost.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceSliderController.cs" />
+    <Compile Include="Assets/Scripts/Spells/Spell.cs" />
+    <Compile Include="Assets/Scripts/Spells/SpellInfluence.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceSlider.cs" />
-    <Compile Include="Assets/Scripts/UpgradeResourceCost.cs" />
+    <Compile Include="Assets/Scripts/Upgrades/Upgrade.cs" />
     <Compile Include="Assets/Scripts/SO/Upgrades/UpgradesSO.cs" />
     <Compile Include="Assets/Scripts/Resources/ResourceToggle.cs" />
   </ItemGroup>

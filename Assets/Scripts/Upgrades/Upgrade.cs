@@ -10,7 +10,9 @@ using System.Linq;
 public enum UpgradedVariable
 {
     Capacity,
-    ReplenishRate
+    ReplenishRate,
+    SpellEfficiency,
+    SpellResourceCost
 }
 
 public class Upgrade : MonoBehaviour
@@ -98,7 +100,7 @@ public class Upgrade : MonoBehaviour
     });  
     }
 
-    public void LevelUp(){
+    private void LevelUp(){
         Lvl++;
         foreach (var upgradeResource in upgradeResourcesCost)
         {
@@ -122,5 +124,12 @@ public class Upgrade : MonoBehaviour
             upgradeResource.UpdateOnLevelUp(this.Lvl);
         }
         
+    }
+
+    public void LvlOnClick() {
+
+        if(CanLevelUp()){
+            LevelUp();
+        }
     }
 }
