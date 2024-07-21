@@ -93,8 +93,8 @@ public class Upgrade : MonoBehaviour
 
     public bool CanLevelUp() {
         return upgradeResourcesCost.All(upgradeResource =>{ 
-        return upgradeResource.currentCost < ResourceManager.Instance.resourcesConversion[upgradeResource.variables.resourceCostType].CurrentValue
-        && ResourceManager.Instance.resourcesConversion[upgradeResource.variables.resourceCostType].CurrentValue - upgradeResource.currentCost > 0;
+        return upgradeResource.currentCost < ResourceManager.Instance.resourcesConversion[upgradeResource.variables.resourceCostType].CurrentValue;
+        //&& ResourceManager.Instance.resourcesConversion[upgradeResource.variables.resourceCostType].CurrentValue - upgradeResource.currentCost > 0;
     });  
     }
 
@@ -108,6 +108,7 @@ public class Upgrade : MonoBehaviour
         {
             upgradeResource.UpdateOnLevelUp(this.Lvl);
         }
+        
     }
 
     private void AddLvl(int Lvl) {
@@ -120,5 +121,6 @@ public class Upgrade : MonoBehaviour
         {
             upgradeResource.UpdateOnLevelUp(this.Lvl);
         }
+        
     }
 }

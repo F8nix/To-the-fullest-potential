@@ -28,9 +28,11 @@ public class UpgradeResourceCost
     }
 
     public void UpdateOnLevelUp(int lvl) {
-        currentCost = GenerateCostOnLevel(lvl);
+        
+        Debug.Log(currentCost + "Cost");
         
         ResourceManager.Instance.resourcesConversion[variables.resourceCostType].CurrentValue -= currentCost;
+        currentCost = GenerateCostOnLevel(lvl);
         ResourceManager.Instance.resourcesConversion[variables.resourceCostType].UpdateUpgradable();
     }
 }

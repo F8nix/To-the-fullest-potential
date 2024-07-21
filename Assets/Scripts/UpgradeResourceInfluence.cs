@@ -22,10 +22,11 @@ public class UpgradeResourceInfluence
     }
 
     public void UpdateOnLevelUp(int lvl) {
-        currentInfluence = GenerateInfluenceOnLevel(lvl);
+        
         Debug.Log(currentInfluence + "Influence");
         
         ResourceManager.Instance.resourcesConversion[targetData.influencedResourceType].capacityUpgradesMultiplier = currentInfluence;
+        currentInfluence = GenerateInfluenceOnLevel(lvl);
         ResourceManager.Instance.resourcesConversion[targetData.influencedResourceType].UpdateUpgradable();
     }
 }
